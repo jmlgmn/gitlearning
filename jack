@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#this is a sample shell script
+echo Hi Jack!
+
+for i in $(ls -d ../*/);
+	do echo ${i%%/};
+done

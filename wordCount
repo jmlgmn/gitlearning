@@ -1,0 +1,7 @@
+#!/bin/bash
+
+
+#wc -m $1 | awk '{print $1}'
+
+
+

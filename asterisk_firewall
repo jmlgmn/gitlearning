@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# SIP on UDP port 5060. Other SIP servers may need TCP port 5060 as well
+iptables -A INPUT -p udp -m udp --dport 5060 -j ACCEPT
+
+# IAX2- the IAX protocol
+iptables -A INPUT -p udp -m udp --dport 4569 -j ACCEPT
+
+# IAX - most have switched to IAX v2, or ought to
+iptables -A INPUT -p udp -m udp --dport 5036 -j ACCEPT
+
+# RTP - the media stream
+# (related to the port range in /etc/asterisk/rtp.conf) 
+iptables -A INPUT -p udp -m udp --dport 10000:20000 -j ACCEPT
+
+
+# MGCP - if you use media gateway control protocol in your configuration
+iptables -A INPUT -p udp -m udp --dport 2727 -j ACCEPT
